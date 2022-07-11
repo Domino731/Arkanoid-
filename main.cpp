@@ -1,83 +1,48 @@
 #include <SFML/Graphics.hpp>
+#include <iostream>
+#include <cstdlib>
+#include "Headers/Ball.h"
 
+using namespace std;
+using namespace sf;
+
+// #1
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
-    sf::CircleShape shape(100.f);
-    shape.setFillColor(sf::Color::Green);
 
-    while (window.isOpen())
-    {
-        sf::Event event;
-        while (window.pollEvent(event))
-        {
-            if (event.type == sf::Event::Closed)
-                window.close();
-        }
+    Ball ball(400, 400);
 
-        window.clear();
-        window.draw(shape);
-        window.display();
-    }
+    RenderWindow window{VideoMode{800, 800}, "Magic tree"};
+
+    window.setFramerateLimit(60);
+
+    Event event;
+    // while (true)
+    // {
+    //     window.clear(Color::Black);
+    //     window.pollEvent(event);
+
+    //     if (event.type == Event::Closed)
+    //     {
+    //         window.close();
+    //         break;
+    //     }
+    //     window.draw(ball);
+    //     window.display();
+    // }
 
     return 0;
+};
+
+Ball::Ball(float x, float y)
+{
+    shape.setPosition(x, y);
+    shape.setRadius(this->ballRadius);
+    shape.setFillColor(Color::White);
+    shape.setOrigin(this->ballRadius, this->ballRadius);
+};
+
+void Ball::draw(RenderTarget &target, RenderStates state) const
+{
+    target.draw(this->shape, state);
 }
-
-// // Cpp
-// #include <iostream>
-// #include <ctime>
-// #include <cstdlib>
-
-// // SFML libarary
-// #include <SFML/Graphics.hpp>
-// #include <SFML/Window.hpp>
-
-// using namespace std;
-// using namespace sf;
-
-// int main()
-// {
-//     cout << "Hej" << endl;
-//     return 0;
-// };
-
-// class Human
-// {
-// public:
-//     string name = "Dominik";
-
-//     void displayName()
-//     {
-//         cout << name << endl;
-//     }
-// };
-
-// // main::main(/* args */)
-// // {
-// // }
-
-// // main::~main()
-// // {
-// // }
-
-// int main()
-// {
-
-//     Human HumanObj;
-
-//     HumanObj.displayName();
-//     // cout << HumanObj.displayName() << endl;
-
-//     const int target = (rand() % 10) + 1;
-//     int answer;
-
-//     do
-//     {
-//         cout << "Enter the number (0 - 10)";
-//         cin >> answer;
-//     } while (target != answer);
-
-//     cout << "Game over" << endl;
-
-//     return 0;
-// }

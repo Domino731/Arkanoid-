@@ -4,7 +4,8 @@
             "name": "Win32",
             "includePath": [
                 "${workspaceFolder}/**",
-                "C:\\SFML-2.5.1\\include"
+                "C:\\SFML-2.5.1\\include",
+                "${workspaceFolder}/Headers"
             ],
             "defines": [
                 "_DEBUG",
@@ -14,7 +15,8 @@
             "cStandard": "c17",
             "cppStandard": "c++17",
             "intelliSenseMode": "gcc-x64",
-            "compilerPath": "C:\\MinGW\\bin\\gcc"
+            "compilerPath": "C:\\MinGW\\bin\\gcc",
+            "configurationProvider": "ms-vscode.makefile-tools"
         }
     ],
     "version": 4
