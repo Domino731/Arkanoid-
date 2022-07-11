@@ -5,9 +5,8 @@ make.exe all --print-data-base --no-builtin-variables --no-builtin-rules --quest
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
- 
 
-# Make data base, printed on Mon Jul 11 15:53:00 2022
+# Make data base, printed on Mon Jul 11 18:48:04 2022
 
 # Variables
 
@@ -34,7 +33,7 @@ MAKE_COMMAND := C:/ProgramData/chocolatey/lib/make/tools/install/bin/make.exe
 # automatic
 @D = $(patsubst %/,%,$(patsubst %\,%,$(dir $@)))
 # environment
-CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_18488_MJBJJTUFNVNNPQRF
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_11776_LYLNHANQIMWCMUYK
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # default
@@ -65,7 +64,8 @@ ONEDRIVE = C:\Users\Dominik\OneDrive
 CURDIR := c:/Users/Dominik/Desktop/MagicTree
 # environment
 APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
-# automatic
+# auto 
+matic
 *D = $(patsubst %/,%,$(patsubst %\,%,$(dir $*)))
 # environment
 PROGRAMFILES = C:\Program Files (x86)
@@ -82,7 +82,7 @@ MAKEFILE_LIST := Makefile
 # automatic
 @F = $(notdir $@)
 # environment
-VSCODE_PID = 18488
+VSCODE_PID = 11776
 # environment
 CLION = C:\Program Files\JetBrains\CLion 2022.1.3\bin;
 # automatic
@@ -202,9 +202,9 @@ PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 165 Stepping 5, GenuineIntel
 
 # Directories
 
-# . (key c:/Users/Dominik/Desktop/MagicTree, mtime 1657547445): 12 files, no impossibilities.
+# . (key c:/Users/Dominik/Desktop/MagicTree, mtime 1657557915): 14 files, no impossibilities.
 
-# 12 files, no impossibilities in 1 directories.
+# 14 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -289,13 +289,12 @@ link:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 18 / storage = 136 B / avg = 7 B
-# current buf: size = 8174 B / used = 136 B / count = 18 / avg = 7 B
+# strcache buffers: 1 (0) / strings = 20 / storage = 148 B / avg = 7 B
+# current buf: size = 8174 B / used = 148 B / count = 20 / avg = 7 B
 
-# strcache performance: lookups = 30 / hit rate = 40%
-# hash-ta 
-ble stats:
-# Load=18/8192=0%, Rehash=0, Collisions=0/30=0%
-# Finished Make data base on Mon Jul 11 15:53:00 2022
+# strcache performance: lookups = 32 / hit rate = 37%
+# hash-table stats:
+# Load=20/8192=0%, Rehash=0, Collisions=0/32=0%
+# Finished Make data base on Mon Jul 11 18:48:04 2022
 
  
