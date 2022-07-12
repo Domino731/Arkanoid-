@@ -10,6 +10,8 @@ public:
     Paddle() = delete;
     ~Paddle() = default;
 
+    string const lastPressedKey = "";
+
     void update();
     // get positon of ball
     float top();

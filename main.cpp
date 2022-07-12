@@ -114,19 +114,40 @@ void Paddle::draw(RenderTarget &target, RenderStates state) const
 void Paddle::update()
 {
     shape.move(this->velocity);
-
-    if (Keyboard::isKeyPressed(Keyboard::Key::Left) && this->left() > 0)
+    // shape.getPosition().x;
+    if (shape.getPosition().x <= 40)
     {
-        velocity.x = -paddle_velocity;
-    }
-    else if (Keyboard::isKeyPressed(Keyboard::Key::Right) && this->right() < 800)
-    {
+        cout << shape.getPosition().x << endl;
         velocity.x = paddle_velocity;
+    }
+    else if (shape.getPosition().x >= 760)
+    {
+        cout << shape.getPosition().x << endl;
+        velocity.x = -paddle_velocity;
     }
     else
     {
-        velocity.x = 0;
+        if (Keyboard::isKeyPressed(Keyboard::Key::Left) && this->left() > 0)
+        {
+            velocity.x = -paddle_velocity;
+        }
+        else if (Keyboard::isKeyPressed(Keyboard::Key::Right) && this->right() < 800)
+        {
+            velocity.x = paddle_velocity;
+        }
+        else if (Keyboard::isKeyPressed(Keyboard::Key::Down))
+        {
+            velocity.x = 0;
+        }
     }
+
+    // else
+    // {
+    //     if(lastPressedKey.empty() == true){
+    //        velocity.x = 0;
+    //     }
+    //     else if()
+    // }
 }
 
 float Paddle::top()
