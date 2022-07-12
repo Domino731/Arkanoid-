@@ -5,11 +5,14 @@ make.exe all --print-data-base --no-builtin-variables --no-builtin-rules --quest
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
+ 
 
-# Make data base, printed on Mon Jul 11 18:48:04 2022
+# Make data base, printed on Tue Jul 12 20:21:45 2022
 
 # Variables
 
+# environment
+FPS_BROWSER_APP_PROFILE_STRING = Internet Explorer
 # environment
 SYSTEMDRIVE = C:
 # environment
@@ -33,7 +36,9 @@ MAKE_COMMAND := C:/ProgramData/chocolatey/lib/make/tools/install/bin/make.exe
 # automatic
 @D = $(patsubst %/,%,$(patsubst %\,%,$(dir $@)))
 # environment
-CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_11776_LYLNHANQIMWCMUYK
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_5352_EWDJMBQUBFRRAGAD
+# environment
+FPS_BROWSER_USER_PROFILE_STRING = Default
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # default
@@ -64,8 +69,7 @@ ONEDRIVE = C:\Users\Dominik\OneDrive
 CURDIR := c:/Users/Dominik/Desktop/MagicTree
 # environment
 APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
-# auto 
-matic
+# automatic
 *D = $(patsubst %/,%,$(patsubst %\,%,$(dir $*)))
 # environment
 PROGRAMFILES = C:\Program Files (x86)
@@ -82,7 +86,7 @@ MAKEFILE_LIST := Makefile
 # automatic
 @F = $(notdir $@)
 # environment
-VSCODE_PID = 11776
+VSCODE_PID = 5352
 # environment
 CLION = C:\Program Files\JetBrains\CLion 2022.1.3\bin;
 # automatic
@@ -194,7 +198,7 @@ PROCESSOR_REVISION = a505
 # environment
 PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 165 Stepping 5, GenuineIntel
 # variable set hash-table stats:
-# Load=91/1024=9%, Rehash=0, Collisions=8/121=7%
+# Load=93/1024=9%, Rehash=0, Collisions=9/123=7%
 
 # Pattern-specific Variable Values
 
@@ -202,7 +206,7 @@ PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 165 Stepping 5, GenuineIntel
 
 # Directories
 
-# . (key c:/Users/Dominik/Desktop/MagicTree, mtime 1657557915): 14 files, no impossibilities.
+# . (key c:/Users/Dominik/Desktop/MagicTree, mtime 1657560530): 14 files, no impossibilities.
 
 # 14 files, no impossibilities in 1 directories.
 
@@ -242,7 +246,7 @@ compile:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-11 15:47:47
+#  Last modified 2022-07-11 19:28:48
 #  File has been updated.
 #  Successfully updated.
 
@@ -250,7 +254,7 @@ clean:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 10):
+#  recipe to execute (from 'Makefile', line 13):
 	rm -f main *.o
 
 # Not a target:
@@ -259,7 +263,7 @@ clean:
 #  Modification time never checked.
 #  File has not been updated.
 
-all: compile link
+all: compile link open
 #  Command line target.
 #  Implicit rule search has been done.
 #  File does not exist.
@@ -272,8 +276,16 @@ link:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 7):
+#  recipe 
+ to execute (from 'Makefile', line 7):
 	g++ main.o -o main -L"C:\SFML-2.5.1\lib" -lsfml-graphics -lsfml-window -lsfml-system
+
+open:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 10):
+	./main.exe
 
 # Not a target:
 .SUFFIXES:
@@ -282,19 +294,19 @@ link:
 #  File has not been updated.
 
 # files hash-table stats:
-# Load=7/1024=1%, Rehash=0, Collisions=0/23=0%
+# Load=8/1024=1%, Rehash=0, Collisions=0/26=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 20 / storage = 148 B / avg = 7 B
-# current buf: size = 8174 B / used = 148 B / count = 20 / avg = 7 B
+# strcache buffers: 1 (0) / strings = 21 / storage = 153 B / avg = 7 B
+# current buf: size = 8174 B / used = 153 B / count = 21 / avg = 7 B
 
-# strcache performance: lookups = 32 / hit rate = 37%
+# strcache performance: lookups = 35 / hit rate = 40%
 # hash-table stats:
-# Load=20/8192=0%, Rehash=0, Collisions=0/32=0%
-# Finished Make data base on Mon Jul 11 18:48:04 2022
+# Load=21/8192=0%, Rehash=0, Collisions=0/35=0%
+# Finished Make data base on Tue Jul 12 20:21:45 2022
 
  
