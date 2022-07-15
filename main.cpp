@@ -4,6 +4,7 @@
 #include "Headers/Ball.h"
 #include "Headers/Paddle.h"
 #include "Headers/Block.h"
+#include <cmath>
 
 using namespace std;
 using namespace sf;
@@ -31,6 +32,44 @@ bool colisionTest(Paddle &paddle, Ball &ball)
     }
 };
 
+bool colisionTest(Block &block, Ball &ball)
+{
+    if (!isIntersecting(block, ball))
+    {
+        return false;
+    }
+
+    // destroy block
+    block.Destroy();
+
+    // ball hit from left site
+    float overlapLeft{ball.right() - block.left()};
+
+    // ball hit from right site
+    float overlapRight{ball.right() - block.left()};
+
+    // ball hit from top site
+    float overlapTop{ball.bot() - block.top()};
+
+    // ball hit from top site
+    float overlapBot{ball.bot() - block.top()};
+
+    bool ballFromLeft(abs(overlapLeft) - abs(overlapRight));
+    bool ballFromTop(abs(overlapTop) - abs(overlapBot));
+
+    float minOverlapX{ballFromLeft ? overlapLeft : overlapRight};
+    float minOverlapY{ballFromTop ? overlapTop : overlapBot};
+
+    if (abs(minOverlapX) < abs(minOverlapY))
+    {
+        ballFromLeft ? ball.moveLeft() : ball.moveRight();
+    }
+    else
+    {
+        ballFromTop ? ball.moveUp() : ball.moveDown();
+    }
+}
+
 // #1
 int main()
 {
@@ -46,16 +85,12 @@ int main()
 
     vector<Block> blocks;
 
-    cout << 1 << endl;
     for (int i = 0; i < blocksY; i++)
     {
         for (int j = 0; j < blocksX; j++)
-        {
-            cout << 1 << endl;
             // creating object
             blocks.emplace_back((j + 1) * (blockWidth + 10), (i + 2) * (blockHeight + 5), blockWidth, blockHeight);
-        }
-    };
+    }
 
     Event event;
     while (true)
@@ -73,6 +108,12 @@ int main()
 
         colisionTest(paddle, ball);
 
+        for (auto &block : blocks)
+        {
+            if (colisionTest(block, ball))
+                break;
+        }
+
         window.draw(ball);
         window.draw(paddle);
 
@@ -85,7 +126,6 @@ int main()
 
         window.display();
     };
-    cout << "TEST";
     return 0;
 };
 
