@@ -20,6 +20,15 @@ public:
     float left();
     float right();
 
+    // moving ball
+    void moveDown();
+    void moveUp();
+    void moveLeft();
+    void moveRight();
+
+    // get positon of verctor (2f)
+    Vector2f getPosition();
+
 private:
     CircleShape shape;
     const float ballRadius{10.1f};

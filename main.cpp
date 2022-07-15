@@ -7,6 +7,29 @@
 using namespace std;
 using namespace sf;
 
+template <class T1, class T2>
+bool isIntersecting(T1 &A, T2 &B)
+{
+    return A.right() >= B.left() && A.left() <= B.right() && A.bot() >= B.top() && A.top() <= B.bot();
+};
+
+bool colisionTest(Paddle &paddle, Ball &ball)
+{
+    if (!isIntersecting(paddle, ball))
+    {
+        return false;
+    };
+    ball.moveUp();
+    if (ball.getPosition().x < paddle.getPosition().x)
+    {
+        ball.moveLeft();
+    }
+    else if (ball.getPosition().x > paddle.getPosition().x)
+    {
+        ball.moveRight();
+    }
+};
+
 // #1
 int main()
 {
@@ -31,6 +54,8 @@ int main()
         }
         ball.update();
         paddle.update();
+
+        colisionTest(paddle, ball);
 
         window.draw(ball);
         window.draw(paddle);
@@ -95,6 +120,28 @@ float Ball::left()
 float Ball::right()
 {
     return shape.getPosition().x + shape.getRadius();
+}
+
+void Ball::moveDown()
+{
+    this->velocity.y = ballVelocity;
+};
+void Ball::moveUp()
+{
+    this->velocity.y = -ballVelocity;
+};
+void Ball::moveLeft()
+{
+    this->velocity.x = -ballVelocity;
+};
+void Ball::moveRight()
+{
+    this->velocity.x = ballVelocity;
+}
+
+Vector2f Ball::getPosition()
+{
+    return shape.getPosition();
 }
 
 // Paddle class
@@ -168,4 +215,9 @@ float Paddle::left()
 float Paddle::right()
 {
     return shape.getPosition().x + shape.getSize().x / 2.f;
+}
+
+Vector2f Paddle::getPosition()
+{
+    return shape.getPosition();
 }

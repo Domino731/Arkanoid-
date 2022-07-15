@@ -19,6 +19,9 @@ public:
     float left();
     float right();
 
+    // get positon of verctor (2f)
+    Vector2f getPosition();
+
 private:
     RectangleShape shape;
 
