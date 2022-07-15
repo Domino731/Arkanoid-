@@ -3,6 +3,7 @@
 #include <cstdlib>
 #include "Headers/Ball.h"
 #include "Headers/Paddle.h"
+#include "Headers/Block.h"
 
 using namespace std;
 using namespace sf;
@@ -220,4 +221,61 @@ float Paddle::right()
 Vector2f Paddle::getPosition()
 {
     return shape.getPosition();
+}
+
+////////////////////////////////////////
+// Paddle class
+Block::Block(float x, float y, float width, float height)
+{
+    shape.setPosition(x, y);
+    shape.setSize({width, height});
+    shape.setFillColor(Color::Yellow);
+    shape.setOrigin(width / 2.f, height / 2.f);
+}
+
+void Block::draw(RenderTarget &target, RenderStates state) const
+{
+    target.draw(this->shape, state);
+}
+
+float Block::top()
+{
+    return shape.getPosition().y - shape.getSize().y / 2.f;
+}
+
+float Block::bot()
+{
+    return shape.getPosition().y + shape.getSize().y / 2.f;
+}
+
+float Block::left()
+{
+    return shape.getPosition().x - shape.getSize().x / 2.f;
+}
+
+float Block::right()
+{
+    return shape.getPosition().x + shape.getSize().x / 2.f;
+}
+
+Vector2f Block::getPosition()
+{
+    return shape.getPosition();
+}
+
+bool Block::isDestroyed()
+{
+    return this->destroyed;
+}
+void Block::Destroy()
+{
+    this->destroyed = true;
+}
+Vector2f Block::getSize()
+{
+    return shape.getSize();
+}
+
+void Block::update()
+{
 }
