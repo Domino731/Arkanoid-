@@ -42,6 +42,21 @@ int main()
 
     window.setFramerateLimit(75);
 
+    unsigned blocksX{8}, blocksY{4}, blockWidth{60}, blockHeight{20};
+
+    vector<Block> blocks;
+
+    cout << 1 << endl;
+    for (int i = 0; i < blocksY; i++)
+    {
+        for (int j = 0; j < blocksX; j++)
+        {
+            cout << 1 << endl;
+            // creating object
+            blocks.emplace_back((j + 1) * (blockWidth + 10), (i + 2) * (blockHeight + 5), blockWidth, blockHeight);
+        }
+    };
+
     Event event;
     while (true)
     {
@@ -60,6 +75,13 @@ int main()
 
         window.draw(ball);
         window.draw(paddle);
+
+        // loop for objects
+        for (auto &block : blocks)
+        {
+            cout << 1 << endl;
+            window.draw(block);
+        }
 
         window.display();
     };
@@ -224,7 +246,7 @@ Vector2f Paddle::getPosition()
 }
 
 ////////////////////////////////////////
-// Paddle class
+
 Block::Block(float x, float y, float width, float height)
 {
     shape.setPosition(x, y);
