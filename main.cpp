@@ -110,7 +110,7 @@ int main()
 
         for (auto &block : blocks)
         {
-            if (colisionTest(block, ball))
+            if (!block.isDestroyed() && colisionTest(block, ball))
                 break;
         }
 
@@ -120,8 +120,10 @@ int main()
         // loop for objects
         for (auto &block : blocks)
         {
-            cout << 1 << endl;
-            window.draw(block);
+            if (!block.isDestroyed())
+            {
+                window.draw(block);
+            }
         }
 
         window.display();
@@ -224,15 +226,14 @@ void Paddle::draw(RenderTarget &target, RenderStates state) const
 void Paddle::update()
 {
     shape.move(this->velocity);
-    // shape.getPosition().x;
+
+    // handling hitting paddle left or right wall
     if (shape.getPosition().x <= 40)
     {
-        cout << shape.getPosition().x << endl;
         velocity.x = paddle_velocity;
     }
     else if (shape.getPosition().x >= 760)
     {
-        cout << shape.getPosition().x << endl;
         velocity.x = -paddle_velocity;
     }
     else
@@ -250,14 +251,6 @@ void Paddle::update()
             velocity.x = 0;
         }
     }
-
-    // else
-    // {
-    //     if(lastPressedKey.empty() == true){
-    //        velocity.x = 0;
-    //     }
-    //     else if()
-    // }
 }
 
 float Paddle::top()
